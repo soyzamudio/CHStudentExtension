@@ -1,0 +1,20 @@
+<div id='alert' class="container">
+  <div class="row">
+    <div class="col-md-12" ng-repeat='(key, person) in TA' ng-if='name !== "food"'>
+      <a href="" class="btn btn-available" ng-class='{"btn-not-available disabled": !person.available}' ng-click='getTA(key)'>
+        <span class="icon ion-alert" style='float: right;'></span>
+        Get help from <span class='text-capitalize'>{{key}}</span>
+      </a>
+    </div>
+    <div class="col-md-12" ng-if='name === "food"'>
+      <textarea id='food' class='form-control' name="dinner" id="" rows="2" ng-model="dinner" placeholder="What's for dinner?"></textarea>
+      <button class="btn btn-available" ng-click='foodReady(dinner)'>
+        <span class="icon ion-alert" style='float: right;'></span>
+        Food is ready
+      </button>
+    </div>
+    <div class="col-md-12">
+      <button ng-click='logout()' class="btn btn-primary">Log out</button>
+    </div>
+  </div>
+</div>

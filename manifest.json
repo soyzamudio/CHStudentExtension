@@ -1,0 +1,28 @@
+{
+  "name": "Coding House",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Students can request help from TAs by clicking on a button.",
+  "homepage_url": "http://codinghouse.co",
+  "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com; object-src 'self'",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": "icons/icon128.png",
+    "default_title": "Coding House",
+    "default_popup": "src/browser_action/browser_action.html"
+  },
+  "permissions": [
+    "storage",
+    "notifications",
+    "geolocation"
+  ]
+}

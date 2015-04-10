@@ -1,0 +1,37 @@
+body {
+  font-family: Helvetica, Ubuntu, Arial, sans-serif;
+  padding: 10px;
+  width: 400px;
+}
+
+#food {
+  width: 100%;
+  margin: 5px;
+}
+
+#alert .btn {
+  width: 100%;
+  margin: 5px;
+}
+
+#alert .btn:hover {
+  color: #fff;
+}
+
+#alert .btn:focus {
+  color: #fff;
+}
+
+#alert .btn-available {
+  color: #fff;
+  background: #4dc47d;
+}
+
+#alert .btn-available:hover {
+  color: #fff;
+  background: #3cad65;
+}
+
+#alert .btn-not-available {
+  background: #f23819;
+}
