@@ -1,7 +1,7 @@
 <div id='alert' class="container">
   <div class="row">
     <div class="col-md-12" ng-repeat='(key, person) in TA' ng-if='name !== "food"'>
-      <a href="" class="btn btn-available" ng-class='{"btn-not-available disabled": !person.available}' ng-click='getTA(key)'>
+      <a href="" class="btn btn-available" ng-class='{"btn-not-available disabled": !person.available, "disabled" : disabled}' ng-click='getTA(key)'>
         <span class="icon ion-alert" style='float: right;'></span>
         Get help from <span class='text-capitalize'>{{key}}</span>
       </a>
