@@ -2,14 +2,13 @@ angular.module('alert')
 .controller('HomeController', ['$rootScope', '$scope', '$state', '$firebaseObject', '$timeout', function($rootScope, $scope, $state, $firebaseArray, $timeout) {
 
   $scope.disabled = false;
-
+  $scope.dinner = '';
+  
   var ref = new Firebase('https://get-ta.firebaseio.com/assistant');
   var TA = $firebaseArray(ref);
   TA.$loaded(function(snapshot) {
     $scope.TA = snapshot;
   })
-
-  $scope.dinner = '';
 
   $scope.getTA = function(ta) {
     sendNotification(ta);
@@ -26,6 +25,7 @@ angular.module('alert')
   $scope.foodReady = function(text) {
     var food = new Firebase('https://get-ta.firebaseio.com/food/');
     food.update({dinner: text});
+    $scope.dinner = '';
   }
 
   $scope.logout = function() {
