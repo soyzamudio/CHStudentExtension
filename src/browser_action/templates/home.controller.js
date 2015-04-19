@@ -3,7 +3,7 @@ angular.module('alert')
 
   $scope.disabled = false;
   $scope.dinner = '';
-  
+
   var ref = new Firebase('https://get-ta.firebaseio.com/assistant');
   var TA = $firebaseArray(ref);
   TA.$loaded(function(snapshot) {
@@ -14,7 +14,7 @@ angular.module('alert')
     sendNotification(ta);
     var number = Math.floor((Math.random() * 999999) + 1);
     var assistant = new Firebase('https://get-ta.firebaseio.com/assistant/' + ta + '/help');
-    assistant.update({student: $rootScope.name, number: number });
+    assistant.update({student: $rootScope.name, number: number, timestamp: Firebase.ServerValue.TIMESTAMP });
     $scope.disabled = true;
 
     $timeout(function() {
@@ -24,7 +24,7 @@ angular.module('alert')
 
   $scope.foodReady = function(text) {
     var food = new Firebase('https://get-ta.firebaseio.com/food/');
-    food.update({dinner: text});
+    food.update({dinner: text, timestamp: Firebase.ServerValue.TIMESTAMP});
     $scope.dinner = '';
   }
 
@@ -38,7 +38,7 @@ angular.module('alert')
       type: "basic",
       title: 'Sit tight',
       message: ta + ' is on his way',
-      iconUrl: "../../../icons/icon128.png"
+      iconUrl: "../../../icons/icon128.png",
     }
     chrome.notifications.create('assist', opt, function(id) { i++; });
   }
